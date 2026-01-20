@@ -1,0 +1,106 @@
+# =============== #
+# Unity Generated #
+# =============== #
+
+/Library/
+# Unity caches Library, do not commit
+
+/Temp/
+/Logs/
+/UserSettings/
+# Temporary & user-specific files, ignore these
+
+# Avoid committing crash reports
+/*.pidb
+/*.suo
+/*.svd
+/*.userprefs
+/*.mode1v3
+/*.mode2v3
+/*.wlf
+
+# ================ #
+# Visual Studio / JetBrains Rider #
+# ================ #
+/.vscode/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userosscache
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.opendb
+*.VC.db
+
+# ================= #
+# Unity Build Files #
+# ================= #
+
+/Builds/
+# Ignore all exported builds (Windows, macOS, etc.)
+
+/Assets/StreamingAssets/
+/*.apk
+/*.aab
+/*.exe
+/*.app
+/*.unitypackage
+/*.zip
+
+# ========================= #
+# Unity Auto-generated Meta #
+# ========================= #
+/*.meta
+# Keep .meta files since Unity requires them for asset tracking
+
+# =============== #
+# Logs and Local Settings #
+# =============== #
+/*.log
+*.tps
+*.playbacktrace
+
+# =============== #
+# Collaboration #
+# =============== #
+/.idea/
+/*.tmproj
+/.vs/
+.DS_Store
+Thumbs.db
+# Ignore IDE settings and OS-specific junk
+
+# =============== #
+# JetBrains Rider #
+# =============== #
+/.idea/
+*.iml
+out/
+
+# =============== #
+# Unity Addressables #
+# =============== #
+/Assets/AddressableAssetsData/*/*.bin
+/Assets/AddressableAssetsData/*/*.hash
+/Assets/AddressableAssetsData/*/*.settings
+
+# =============== #
+# Additional Unity Caches #
+# =============== #
+/MemoryCaptures/
+/obj/
+
+# =============== #
+# Allow These Important Files #
+# =============== #
+!Assets/
+!ProjectSettings/
+!Packages/
+!Assets/**/*.meta
+!ProjectSettings/**/*.meta
+!Packages/**/*.meta
