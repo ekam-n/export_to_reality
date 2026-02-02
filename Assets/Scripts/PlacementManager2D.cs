@@ -14,6 +14,9 @@ public class PlacementManager2D : MonoBehaviour
     [Header("Limits")]
     [SerializeField] private int maxPlatformsInScene = 5;
 
+    [Tooltip("Max allowed per prefab index. Must match platformPrefabs length. Example: [3,2,1].")]
+    [SerializeField] private int[] maxPerType;
+
     [Header("Placement Settings")]
     [SerializeField] private bool snapToGrid = true;
     [SerializeField] private float gridSize = 1f;
@@ -28,6 +31,10 @@ public class PlacementManager2D : MonoBehaviour
 
     private readonly List<GameObject> placedPlatforms = new();
 
+    // Track placed count per type and map instance -> type index
+    private int[] currentPerType;
+    private readonly Dictionary<GameObject, int> instanceToTypeIndex = new();
+
     private bool isPlacing;
     private int selectedIndex = 0;
 
@@ -38,38 +45,41 @@ public class PlacementManager2D : MonoBehaviour
     void Awake()
     {
         if (cam == null) cam = Camera.main;
+
+        int typeCount = platformPrefabs != null ? platformPrefabs.Length : 0;
+        currentPerType = new int[typeCount];
+
+        if (typeCount > 0)
+        {
+            if (maxPerType == null || maxPerType.Length != typeCount)
+            {
+                maxPerType = new int[typeCount];
+                for (int i = 0; i < typeCount; i++)
+                    maxPerType[i] = maxPlatformsInScene;
+            }
+        }
     }
 
     void Update()
     {
         if (Mouse.current == null) return;
 
-        // If we're placing, update ghost + placement controls
         if (isPlacing && ghost != null)
         {
             UpdateGhostFollowAndRotation();
 
-            // Ignore placing clicks if pointer is over UI
             if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
                 return;
 
-            // Left click place (if under limit)
             if (Mouse.current.leftButton.wasPressedThisFrame)
             {
-                if (placedPlatforms.Count >= maxPlatformsInScene)
-                {
-                    // Option A: Do nothing when max reached
-                    // Option B: delete oldest then place
-                    // RemovePlatform(placedPlatforms[0]);
-                    // (uncomment above 2 lines if you prefer "replace oldest")
+                if (!CanPlaceSelectedType())
                     return;
-                }
 
                 Vector3 pos = ghost.transform.position;
                 PlaceRealPlatform(pos, targetRotationZ);
             }
 
-            // Right click cancels placement mode
             if (Mouse.current.rightButton.wasPressedThisFrame)
             {
                 StopPlacing();
@@ -77,12 +87,9 @@ public class PlacementManager2D : MonoBehaviour
         }
         else
         {
-            // Not placing: allow removal by click (optional)
-            // Ignore if clicking UI
             if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
                 return;
 
-            // Right click delete a platform under mouse
             if (Mouse.current.rightButton.wasPressedThisFrame)
             {
                 TryRemovePlatformUnderMouse();
@@ -104,18 +111,15 @@ public class PlacementManager2D : MonoBehaviour
 
         if (ghost != null) Destroy(ghost);
 
-        // Create ghost
         ghost = Instantiate(platformPrefabs[selectedIndex]);
         ghost.name = "GhostPlatform";
 
-        // Disable collisions / physics on ghost
         var col = ghost.GetComponent<Collider2D>();
         if (col != null) col.enabled = false;
 
         var rb = ghost.GetComponent<Rigidbody2D>();
         if (rb != null) rb.simulated = false;
 
-        // Make ghost transparent
         var sr = ghost.GetComponent<SpriteRenderer>();
         if (sr != null)
         {
@@ -147,12 +151,10 @@ public class PlacementManager2D : MonoBehaviour
 
         ghost.transform.position = mouseWorld;
 
-        // Scroll sets target rotation in steps
         float scrollY = Mouse.current.scroll.ReadValue().y;
-        if (scrollY > 0f) targetRotationZ += rotateStepDegrees;      // CCW
-        else if (scrollY < 0f) targetRotationZ -= rotateStepDegrees; // CW
+        if (scrollY > 0f) targetRotationZ += rotateStepDegrees;
+        else if (scrollY < 0f) targetRotationZ -= rotateStepDegrees;
 
-        // Smooth rotate toward target
         currentRotationZ = Mathf.MoveTowardsAngle(
             currentRotationZ,
             targetRotationZ,
@@ -160,6 +162,32 @@ public class PlacementManager2D : MonoBehaviour
         );
 
         ghost.transform.rotation = Quaternion.Euler(0f, 0f, currentRotationZ);
+
+        // Optional visual: tint ghost if you cannot place due to limits
+        var sr = ghost.GetComponent<SpriteRenderer>();
+        if (sr != null)
+        {
+            Color c = sr.color;
+            c.a = ghostAlpha;
+            sr.color = c;
+        }
+    }
+
+    private bool CanPlaceSelectedType()
+    {
+        if (placedPlatforms.Count >= maxPlatformsInScene)
+            return false;
+
+        if (currentPerType == null || selectedIndex < 0 || selectedIndex >= currentPerType.Length)
+            return false;
+
+        if (maxPerType != null && maxPerType.Length == currentPerType.Length)
+        {
+            if (currentPerType[selectedIndex] >= maxPerType[selectedIndex])
+                return false;
+        }
+
+        return true;
     }
 
     private void PlaceRealPlatform(Vector3 pos, float rotZ)
@@ -168,13 +196,9 @@ public class PlacementManager2D : MonoBehaviour
         GameObject placed = Instantiate(prefab, pos, Quaternion.Euler(0f, 0f, rotZ));
         placed.name = $"Platform_{selectedIndex}";
 
-        // Ensure it is removable (must have PlaceablePlatform)
         if (placed.GetComponent<PlaceablePlatform>() == null)
-        {
             placed.AddComponent<PlaceablePlatform>();
-        }
 
-        // Make sure physics is active (dynamic)
         var rb = placed.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
@@ -187,6 +211,11 @@ public class PlacementManager2D : MonoBehaviour
         if (col != null) col.enabled = true;
 
         placedPlatforms.Add(placed);
+
+        if (currentPerType != null && selectedIndex >= 0 && selectedIndex < currentPerType.Length)
+            currentPerType[selectedIndex]++;
+
+        instanceToTypeIndex[placed] = selectedIndex;
     }
 
     private void TryRemovePlatformUnderMouse()
@@ -195,11 +224,9 @@ public class PlacementManager2D : MonoBehaviour
         Vector3 mouseScreen = new(mouseScreen2D.x, mouseScreen2D.y, -cam.transform.position.z);
         Vector2 mouseWorld = cam.ScreenToWorldPoint(mouseScreen);
 
-        // Overlap test (small radius). Requires removable platforms to be on removableMask layers.
         Collider2D hit = Physics2D.OverlapCircle(mouseWorld, clickRadius, removableMask);
         if (hit == null) return;
 
-        // Only remove if it’s one of our placed platforms
         PlaceablePlatform marker = hit.GetComponentInParent<PlaceablePlatform>();
         if (marker == null) return;
 
@@ -209,28 +236,65 @@ public class PlacementManager2D : MonoBehaviour
     private void RemovePlatform(GameObject platform)
     {
         if (platform == null) return;
+
+        if (instanceToTypeIndex.TryGetValue(platform, out int typeIndex))
+        {
+            if (currentPerType != null && typeIndex >= 0 && typeIndex < currentPerType.Length)
+                currentPerType[typeIndex] = Mathf.Max(0, currentPerType[typeIndex] - 1);
+
+            instanceToTypeIndex.Remove(platform);
+        }
+
         placedPlatforms.Remove(platform);
         Destroy(platform);
     }
 
-    // Optional helper for a "Remove Mode" UI button
     public void RemoveMode()
     {
         StopPlacing();
-        // Now right-click will delete under mouse
     }
 
-    // Optional: clear all placed platforms
     public void ClearAllPlaced()
     {
         for (int i = placedPlatforms.Count - 1; i >= 0; i--)
         {
-            if (placedPlatforms[i] != null) Destroy(placedPlatforms[i]);
+            GameObject p = placedPlatforms[i];
+            if (p == null) continue;
+
+            if (instanceToTypeIndex.TryGetValue(p, out int typeIndex))
+            {
+                if (currentPerType != null && typeIndex >= 0 && typeIndex < currentPerType.Length)
+                    currentPerType[typeIndex] = Mathf.Max(0, currentPerType[typeIndex] - 1);
+
+                instanceToTypeIndex.Remove(p);
+            }
+
+            Destroy(p);
         }
+
         placedPlatforms.Clear();
     }
 
-    // Optional: visualize removal radius in Scene view
+    // Optional helpers for UI
+    public int GetTotalPlacedCount()
+    {
+        return placedPlatforms.Count;
+    }
+
+    public int GetPlacedCountForType(int typeIndex)
+    {
+        if (currentPerType == null) return 0;
+        if (typeIndex < 0 || typeIndex >= currentPerType.Length) return 0;
+        return currentPerType[typeIndex];
+    }
+
+    public int GetRemainingForType(int typeIndex)
+    {
+        if (maxPerType == null || currentPerType == null) return 0;
+        if (typeIndex < 0 || typeIndex >= currentPerType.Length) return 0;
+        return Mathf.Max(0, maxPerType[typeIndex] - currentPerType[typeIndex]);
+    }
+
     void OnDrawGizmosSelected()
     {
         if (cam == null) return;
