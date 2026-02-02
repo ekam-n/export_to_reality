@@ -16,21 +16,34 @@ public class MoverController2D : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private bool jumpQueued;
+    private Collider2D col;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        col = GetComponent<Collider2D>();
     }
 
     private bool IsGrounded()
     {
-        Vector2 origin = (Vector2)transform.position + groundCheckOffset;
-        RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.down, groundCheckDistance, groundLayer);
+        Bounds b = col.bounds;
 
-        // Optional: visualize it in Scene view
-        Debug.DrawRay(origin, Vector2.down * groundCheckDistance, hit ? Color.green : Color.red);
+        // Start just inside the bottom of the collider
+        Vector2 origin = new Vector2(b.center.x, b.min.y + 0.02f);
 
-        return hit.collider != null;
+        // A thin box as wide as the player (slightly smaller so it doesn't catch edges)
+        Vector2 size = new Vector2(b.size.x * 0.9f, 0.02f);
+
+        RaycastHit2D hit = Physics2D.BoxCast(
+            origin,
+            size,
+            0f,
+            Vector2.down,
+            groundCheckDistance,
+            groundLayer
+        );
+
+        return hit.collider != null && hit.collider != col;
     }
 
     // Called by PlayerInput (Send Messages) when the "Move" action changes
