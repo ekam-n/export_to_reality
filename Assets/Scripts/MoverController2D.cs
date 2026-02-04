@@ -17,11 +17,14 @@ public class MoverController2D : MonoBehaviour
     private Vector2 moveInput;
     private bool jumpQueued;
     private Collider2D col;
+    private Vector3 initialPosition;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
+
+        initialPosition = transform.position;
     }
 
     private bool IsGrounded()
@@ -46,6 +49,16 @@ public class MoverController2D : MonoBehaviour
         return hit.collider != null && hit.collider != col;
     }
 
+    public void ResetPlayer()
+    {
+        transform.position = initialPosition;
+
+        rb.linearVelocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+        
+        Debug.Log("Player fell and was reset!");
+    }
+
     // Called by PlayerInput (Send Messages) when the "Move" action changes
     public void OnMove(InputValue value)
     {
@@ -56,6 +69,14 @@ public class MoverController2D : MonoBehaviour
     public void OnJump(InputValue value)
     {
         if (value.isPressed) jumpQueued = true;
+    }
+
+     private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("DeathZone"))
+        {
+            ResetPlayer();
+        }
     }
 
     private void FixedUpdate()
