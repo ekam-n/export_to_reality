@@ -29,6 +29,9 @@ public class PlacementManager2D : MonoBehaviour
     [SerializeField] private LayerMask removableMask;
     [SerializeField] private float clickRadius = 0.1f;
 
+    [Header("UI Display")]
+    [SerializeField] private TMPro.TextMeshProUGUI platformsText;
+
     private readonly List<GameObject> placedPlatforms = new();
 
     // Track placed count per type and map instance -> type index
@@ -58,6 +61,8 @@ public class PlacementManager2D : MonoBehaviour
                     maxPerType[i] = maxPlatformsInScene;
             }
         }
+
+        UpdatePlatformUI();
     }
 
     void Update()
@@ -216,6 +221,8 @@ public class PlacementManager2D : MonoBehaviour
             currentPerType[selectedIndex]++;
 
         instanceToTypeIndex[placed] = selectedIndex;
+
+        UpdatePlatformUI();
     }
 
     private void TryRemovePlatformUnderMouse()
@@ -247,6 +254,8 @@ public class PlacementManager2D : MonoBehaviour
 
         placedPlatforms.Remove(platform);
         Destroy(platform);
+
+        UpdatePlatformUI();
     }
 
     public void RemoveMode()
@@ -273,6 +282,8 @@ public class PlacementManager2D : MonoBehaviour
         }
 
         placedPlatforms.Clear();
+
+        UpdatePlatformUI();
     }
 
     // Optional helpers for UI
@@ -293,6 +304,22 @@ public class PlacementManager2D : MonoBehaviour
         if (maxPerType == null || currentPerType == null) return 0;
         if (typeIndex < 0 || typeIndex >= currentPerType.Length) return 0;
         return Mathf.Max(0, maxPerType[typeIndex] - currentPerType[typeIndex]);
+    }
+
+    private void UpdatePlatformUI()
+    {
+        if (platformsText != null)
+        {
+            platformsText.text = "";
+            //platformsText.text = $"Total Placed: {GetTotalPlacedCount()}/{maxPlatformsInScene}";
+
+            for (int i = 0; i < platformPrefabs.Length; i++)
+            {
+                int placed = GetPlacedCountForType(i);
+                int max = maxPerType != null && i < maxPerType.Length ? maxPerType[i] : maxPlatformsInScene;
+                platformsText.text += $"Type {i}: {placed}/{max}\n";
+            }
+        }
     }
 
     void OnDrawGizmosSelected()
