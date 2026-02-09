@@ -204,7 +204,7 @@ public class PlacementManager2D : MonoBehaviour
         {
             rb.simulated = true;
             rb.bodyType = RigidbodyType2D.Dynamic;
-            rb.gravityScale = 1f;
+            // rb.gravityScale = 1f;
         }
 
         var col = placed.GetComponent<Collider2D>();
