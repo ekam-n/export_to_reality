@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PlacementManager2D : MonoBehaviour
 {
@@ -28,6 +29,12 @@ public class PlacementManager2D : MonoBehaviour
     [Tooltip("What layers count as removable platforms. Put your placed platforms on this layer.")]
     [SerializeField] private LayerMask removableMask;
     [SerializeField] private float clickRadius = 0.1f;
+    [Header("UI Counters (one per prefab index)")]
+    [SerializeField] private TMP_Text[] typeCounterTexts;
+
+    [SerializeField] private Color counterNormalColor = Color.white;
+    [SerializeField] private Color counterMaxColor = Color.red;
+
 
     private readonly List<GameObject> placedPlatforms = new();
 
@@ -58,6 +65,9 @@ public class PlacementManager2D : MonoBehaviour
                     maxPerType[i] = maxPlatformsInScene;
             }
         }
+
+        RefreshCountersUI();
+
     }
 
     void Update()
@@ -216,6 +226,8 @@ public class PlacementManager2D : MonoBehaviour
             currentPerType[selectedIndex]++;
 
         instanceToTypeIndex[placed] = selectedIndex;
+
+        RefreshCountersUI();
     }
 
     private void TryRemovePlatformUnderMouse()
@@ -247,6 +259,8 @@ public class PlacementManager2D : MonoBehaviour
 
         placedPlatforms.Remove(platform);
         Destroy(platform);
+
+        RefreshCountersUI();
     }
 
     public void RemoveMode()
@@ -273,6 +287,8 @@ public class PlacementManager2D : MonoBehaviour
         }
 
         placedPlatforms.Clear();
+
+        RefreshCountersUI();
     }
 
     // Optional helpers for UI
@@ -300,4 +316,24 @@ public class PlacementManager2D : MonoBehaviour
         if (cam == null) return;
         Gizmos.DrawWireSphere(Vector3.zero, 0.01f);
     }
+
+    private void RefreshCountersUI()
+    {
+        if (typeCounterTexts == null || currentPerType == null || maxPerType == null) return;
+
+        int count = Mathf.Min(typeCounterTexts.Length, currentPerType.Length);
+
+        for (int i = 0; i < count; i++)
+        {
+            TMP_Text t = typeCounterTexts[i];
+            if (t == null) continue;
+
+            int placed = currentPerType[i];
+            int max = (i < maxPerType.Length) ? maxPerType[i] : maxPlatformsInScene;
+
+            t.text = $"{placed}/{max}";
+            t.color = placed >= max ? counterMaxColor : counterNormalColor;
+        }
+    }
+
 }
