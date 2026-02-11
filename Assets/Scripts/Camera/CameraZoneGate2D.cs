@@ -7,6 +7,7 @@ public class CameraZoneGate2D : MonoBehaviour
     [SerializeField] private int leftZoneIndex = 0;
     [SerializeField] private int rightZoneIndex = 1;
     [SerializeField] private string playerTag = "Player";
+    [SerializeField] private Transform respawnPoint;
 
     // Track entry side per collider (supports multiple players if needed)
     private readonly Dictionary<Collider2D, bool> enteredFromLeft = new Dictionary<Collider2D, bool>();
@@ -32,6 +33,12 @@ public class CameraZoneGate2D : MonoBehaviour
 
         // true if the player started on the left side when they entered the trigger
         enteredFromLeft[other] = (x < gateX);
+
+        var mover = other.GetComponent<MoverController2D>();
+        if (mover != null)
+        {
+            mover.SetRespawnFromGate(respawnPoint != null ? respawnPoint : transform);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
