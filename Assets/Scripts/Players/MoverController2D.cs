@@ -13,28 +13,44 @@ public class MoverController2D : MonoBehaviour
     [SerializeField] private float groundCheckDistance = 0.1f;
     [SerializeField] private Vector2 groundCheckOffset = new Vector2(0f, -0.5f);
 
+    [Header("Respawn")]
+    [SerializeField] private Vector2 respawnOffset = new Vector2(0.75f, 1.0f); // up and right
+
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private bool jumpQueued;
     private Collider2D col;
-    private Vector3 initialPosition;
+
+    private Vector3 respawnPosition;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
 
-        initialPosition = transform.position;
+        respawnPosition = transform.position; // default to start
+    }
+
+    public void SetRespawnFromGate(Transform gateTransform)
+    {
+        respawnPosition = gateTransform.position + (Vector3)respawnOffset;
+    }
+
+    public void ResetPlayer()
+    {
+        transform.position = respawnPosition;
+
+        rb.linearVelocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+
+        Debug.Log($"Player respawned at {respawnPosition}");
     }
 
     private bool IsGrounded()
     {
         Bounds b = col.bounds;
 
-        // Start just inside the bottom of the collider
         Vector2 origin = new Vector2(b.center.x, b.min.y + 0.02f);
-
-        // A thin box as wide as the player (slightly smaller so it doesn't catch edges)
         Vector2 size = new Vector2(b.size.x * 0.9f, 0.02f);
 
         RaycastHit2D hit = Physics2D.BoxCast(
@@ -49,29 +65,21 @@ public class MoverController2D : MonoBehaviour
         return hit.collider != null && hit.collider != col;
     }
 
-    public void ResetPlayer()
-    {
-        transform.position = initialPosition;
+    public void OnMove(InputValue value) => moveInput = value.Get<Vector2>();
 
-        rb.linearVelocity = Vector2.zero;
-        rb.angularVelocity = 0f;
-        
-        Debug.Log("Player fell and was reset!");
+    public void OnRespawn(InputValue value)
+    {
+        if (value.isPressed)
+            ResetPlayer();
     }
 
-    // Called by PlayerInput (Send Messages) when the "Move" action changes
-    public void OnMove(InputValue value)
-    {
-        moveInput = value.Get<Vector2>();
-    }
 
-    // Called by PlayerInput (Send Messages) when the "Jump" action is performed
     public void OnJump(InputValue value)
     {
         if (value.isPressed) jumpQueued = true;
     }
 
-     private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("DeathZone"))
         {
@@ -81,18 +89,14 @@ public class MoverController2D : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // Horizontal movement
         rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocity.y);
 
-        // Jump
         if (jumpQueued)
         {
             jumpQueued = false;
 
             if (IsGrounded())
-            {
                 rb.AddForce(Vector2.up * jumpImpulse, ForceMode2D.Impulse);
-            }
         }
     }
 }

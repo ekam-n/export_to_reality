@@ -109,6 +109,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Respawn"",
+                    ""type"": ""Button"",
+                    ""id"": ""a0676aa8-9107-4eb6-83ff-3db1743f993f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -133,6 +142,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ca1e1d99-9e57-4ba9-a260-52ce8a368c37"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Respawn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -143,6 +163,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Mover = asset.FindActionMap("Mover", throwIfNotFound: true);
         m_Mover_Move = m_Mover.FindAction("Move", throwIfNotFound: true);
         m_Mover_Jump = m_Mover.FindAction("Jump", throwIfNotFound: true);
+        m_Mover_Respawn = m_Mover.FindAction("Respawn", throwIfNotFound: true);
     }
 
     ~@Controls()
@@ -225,6 +246,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private List<IMoverActions> m_MoverActionsCallbackInterfaces = new List<IMoverActions>();
     private readonly InputAction m_Mover_Move;
     private readonly InputAction m_Mover_Jump;
+    private readonly InputAction m_Mover_Respawn;
     /// <summary>
     /// Provides access to input actions defined in input action map "Mover".
     /// </summary>
@@ -244,6 +266,10 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Mover/Jump".
         /// </summary>
         public InputAction @Jump => m_Wrapper.m_Mover_Jump;
+        /// <summary>
+        /// Provides access to the underlying input action "Mover/Respawn".
+        /// </summary>
+        public InputAction @Respawn => m_Wrapper.m_Mover_Respawn;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -276,6 +302,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
+            @Respawn.started += instance.OnRespawn;
+            @Respawn.performed += instance.OnRespawn;
+            @Respawn.canceled += instance.OnRespawn;
         }
 
         /// <summary>
@@ -293,6 +322,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
+            @Respawn.started -= instance.OnRespawn;
+            @Respawn.performed -= instance.OnRespawn;
+            @Respawn.canceled -= instance.OnRespawn;
         }
 
         /// <summary>
@@ -347,5 +379,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnJump(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Respawn" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnRespawn(InputAction.CallbackContext context);
     }
 }
