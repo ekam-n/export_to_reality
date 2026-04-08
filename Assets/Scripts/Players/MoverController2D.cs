@@ -15,10 +15,16 @@ public class MoverController2D : MonoBehaviour
     [SerializeField] private float groundCheckDistance = 0.1f;
     [SerializeField] private Vector2 groundCheckOffset = new Vector2(0f, -0.5f);
 
-    [SerializeField] private Animator animator;
+    [SerializeField] public Animator animator;
 
     [Header("Respawn")]
     [SerializeField] private Vector2 respawnOffset = new Vector2(0.75f, 1.0f); // up and right
+
+    [Header("SFX")]
+    [SerializeField] private AudioClip jumpSFX;
+    [SerializeField] private float jumpVolume = 0.6f;
+    [SerializeField] private AudioClip deathSFX;
+    [SerializeField] private float deathVolume = 0.3f;
 
     private Rigidbody2D rb;
     private Vector2 moveInput;
@@ -74,7 +80,7 @@ public class MoverController2D : MonoBehaviour
         Debug.Log($"Player respawned at {respawnPosition}");
     }
 
-    private bool IsGrounded()
+    public bool IsGrounded()
     {
         Bounds b = col.bounds;
 
@@ -125,6 +131,7 @@ public class MoverController2D : MonoBehaviour
         if (other.CompareTag("DeathZone"))
         {
             ResetPlayer();
+            AudioManager.instance.PlaySFX(deathSFX, deathVolume);
         }
 
         // if(other.CompareTag("Door"))
@@ -240,7 +247,8 @@ public class MoverController2D : MonoBehaviour
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0);
                 rb.AddForce(Vector2.up * jumpImpulse, ForceMode2D.Impulse);
-                animator.SetBool("isJumping",true);
+                animator.SetBool("isJumping", true);
+                AudioManager.instance.PlaySFX(jumpSFX, jumpVolume);
             }
         }
     }

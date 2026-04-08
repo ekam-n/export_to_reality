@@ -35,15 +35,27 @@ public class PlacementManager2D : MonoBehaviour
 
     [Header("Keybinds")]
     [Tooltip("Key to clear all placed platforms")]
-    [SerializeField] private Key clearAllKey = Key.Digit1;
+    // [SerializeField] private Key clearAllKey = Key.Digit1;
+    public Key clearAllKey = Key.Q;
     [Tooltip("Keys for selecting platforms")]
-    [SerializeField] private Key[] platformSelectKeys;
+    // [SerializeField] private Key[] platformSelectKeys;
+    public Key[] platformSelectKeys;
 
     [SerializeField] private Color counterNormalColor = Color.white;
     [SerializeField] private Color counterMaxColor = Color.red;
 
     [Header("UI Button References")]
-    [SerializeField] private Button[] platformButtons; 
+    [SerializeField] private Button[] platformButtons;
+
+    [Header("SFX")]
+    [SerializeField] private AudioClip selectSFX;
+    [SerializeField] private float selectVolume = 0.3f;
+    [SerializeField] private AudioClip clearSFX;
+    [SerializeField] private float clearVolume = 0.3f;
+    [SerializeField] private AudioClip placeSFX;
+    [SerializeField] private float placeVolume = 0.3f;
+    [SerializeField] private AudioClip rotateSFX;
+    [SerializeField] private float rotateVolume = 0.3f;
 
     private readonly List<GameObject> placedPlatforms = new();
 
@@ -189,6 +201,8 @@ private void UpdateButtonVisuals(int activeIndex)
             c.a = ghostAlpha;
             sr.color = c;
         }
+
+        AudioManager.instance.PlaySFX(selectSFX, selectVolume);
     }
 
     public void StopPlacing()
@@ -214,6 +228,7 @@ private void UpdateButtonVisuals(int activeIndex)
         ghost.transform.position = mouseWorld;
 
         float scrollY = Mouse.current.scroll.ReadValue().y;
+        if (scrollY != 0f) AudioManager.instance.PlaySFX(rotateSFX, rotateVolume);
         if (scrollY > 0f) targetRotationZ += rotateStepDegrees;
         else if (scrollY < 0f) targetRotationZ -= rotateStepDegrees;
 
@@ -280,7 +295,9 @@ private void UpdateButtonVisuals(int activeIndex)
         instanceToTypeIndex[placed] = selectedIndex;
 
         RefreshCountersUI();
-        UpdateButtonVisuals(selectedIndex+1);
+        UpdateButtonVisuals(selectedIndex + 1);
+
+        AudioManager.instance.PlaySFX(placeSFX, placeVolume);
     }
 
     private bool TryRemovePlatformUnderMouse()
@@ -343,6 +360,8 @@ private void UpdateButtonVisuals(int activeIndex)
         placedPlatforms.Clear();
 
         RefreshCountersUI();
+
+        AudioManager.instance.PlaySFX(clearSFX, clearVolume);
     }
 
     // Optional helpers for UI

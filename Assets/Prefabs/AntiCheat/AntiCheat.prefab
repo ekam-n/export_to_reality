@@ -406,6 +406,8 @@ MonoBehaviour:
   cloneAnimator: {fileID: 1720045283863846413}
   dizzyParticles: {fileID: 3328689357762339012}
   rewindIcon: {fileID: 8663397576390047622}
+  stunSFX: {fileID: 8300000, guid: 5147b18374a53764b8b5047c8735f659, type: 3}
+  volume: 0.3
 --- !u!1 &8663397576390047622
 GameObject:
   m_ObjectHideFlags: 0

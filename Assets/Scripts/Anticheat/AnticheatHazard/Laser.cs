@@ -9,6 +9,9 @@ private enum ExecutionState { Idle, Shaking }
     public float shakeDuration = 2.0f;
     public Color bsodColor = new Color(0, 0, 1, 1);
 
+    [SerializeField] private AudioClip deathSFX;
+    [SerializeField] private float deathVolume = 0.3f;
+
     private GameObject currentVictim;
     private Vector3 originalPos;
     private SpriteRenderer victimSR;
@@ -65,6 +68,9 @@ private enum ExecutionState { Idle, Shaking }
         if (victimSR != null) victimSR.color = bsodColor;
 
         originalPos = currentVictim.transform.position;
+
+        if (currentVictim)
+        AudioManager.instance.PlaySFX(deathSFX, deathVolume);
     }
 
     private void HandleExecutionLogic()

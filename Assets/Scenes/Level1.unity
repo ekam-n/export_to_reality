@@ -824,6 +824,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2084232076}
     m_Modifications:
+    - target: {fileID: 2218122697757025529, guid: 18ffce7a26558b6a79bc5c062786339c, type: 3}
+      propertyPath: deathSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 58276cf6470e09b4587cd3074c11c02d, type: 3}
+    - target: {fileID: 2218122697757025529, guid: 18ffce7a26558b6a79bc5c062786339c, type: 3}
+      propertyPath: deathVolume
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 7266423395925764584, guid: 18ffce7a26558b6a79bc5c062786339c, type: 3}
       propertyPath: m_Name
       value: laser
@@ -1076,6 +1084,14 @@ MonoBehaviour:
   platformButtons:
   - {fileID: 1615442805}
   - {fileID: 167484329}
+  selectSFX: {fileID: 8300000, guid: 933bed7fcdb36784b8227207380ba05d, type: 3}
+  selectVolume: 0.3
+  clearSFX: {fileID: 8300000, guid: 9969d3645d28eab48b6e21316702a860, type: 3}
+  clearVolume: 0.3
+  placeSFX: {fileID: 8300000, guid: d134e5b45f1564a4d9698eccda3fd323, type: 3}
+  placeVolume: 0.3
+  rotateSFX: {fileID: 8300000, guid: 768535289cb49834f83ff0fdbfd65b94, type: 3}
+  rotateVolume: 0.5
 --- !u!4 &137987232
 Transform:
   m_ObjectHideFlags: 0
@@ -1723,6 +1739,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 449037631}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: terminalBox
       value: 
       objectReference: {fileID: 449037631}
@@ -1734,6 +1758,14 @@ PrefabInstance:
       propertyPath: terminalText
       value: 
       objectReference: {fileID: 733642027}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a36b3f0f1a69f64abb9594739fe4107, type: 3}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1acbce71dcf390e4080d61fbe1711f0c, type: 3}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: timeBeforeHide
       value: 2
@@ -2148,6 +2180,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 449037631}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: terminalBox
       value: 
       objectReference: {fileID: 449037631}
@@ -2159,6 +2199,14 @@ PrefabInstance:
       propertyPath: terminalText
       value: 
       objectReference: {fileID: 733642027}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a36b3f0f1a69f64abb9594739fe4107, type: 3}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1acbce71dcf390e4080d61fbe1711f0c, type: 3}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: timeBeforeHide
       value: 2
@@ -8343,6 +8391,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 449037631}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: terminalBox
       value: 
       objectReference: {fileID: 449037631}
@@ -8354,6 +8410,14 @@ PrefabInstance:
       propertyPath: terminalText
       value: 
       objectReference: {fileID: 733642027}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a36b3f0f1a69f64abb9594739fe4107, type: 3}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1acbce71dcf390e4080d61fbe1711f0c, type: 3}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: timeBeforeHide
       value: 2
@@ -19789,6 +19853,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 771810620}
   m_CullTransparentMesh: 1
+--- !u!1 &787812747
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 787812749}
+  - component: {fileID: 787812748}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &787812748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787812747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d43505b795375541acde8d6dd5a01ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+--- !u!4 &787812749
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787812747}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &788851060
 GameObject:
   m_ObjectHideFlags: 0
@@ -30466,6 +30574,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpawnAnticheat
   anticheatPrefab: {fileID: 6483949636753900635, guid: c037d64d8d3cc26f08e13d92fbf56a0c, type: 3}
   spawnPoint: {fileID: 1131865263}
+  spawnSFX: {fileID: 8300000, guid: c762b73646e5a3e44927e3f8d0b0cfeb, type: 3}
+  volume: 0.3
 --- !u!212 &940510572
 SpriteRenderer:
   serializedVersion: 2
@@ -30943,6 +31053,8 @@ MonoBehaviour:
   interval: 180
   typingSpeed: 0.04
   timeBeforeHide: 8
+  talkSFX: {fileID: 8300000, guid: 6111df15b100283449befd2fe3bcb4e3, type: 3}
+  talkVolume: 0.3
 --- !u!4 &990269663
 Transform:
   m_ObjectHideFlags: 0
@@ -31124,6 +31236,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 449037631}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: terminalBox
       value: 
       objectReference: {fileID: 449037631}
@@ -31135,6 +31255,14 @@ PrefabInstance:
       propertyPath: terminalText
       value: 
       objectReference: {fileID: 733642027}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a36b3f0f1a69f64abb9594739fe4107, type: 3}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1acbce71dcf390e4080d61fbe1711f0c, type: 3}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: timeBeforeHide
       value: 2
@@ -644170,6 +644298,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 449037631}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: terminalBox
       value: 
       objectReference: {fileID: 449037631}
@@ -644181,6 +644317,14 @@ PrefabInstance:
       propertyPath: terminalText
       value: 
       objectReference: {fileID: 733642027}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a36b3f0f1a69f64abb9594739fe4107, type: 3}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1acbce71dcf390e4080d61fbe1711f0c, type: 3}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: timeBeforeHide
       value: 2
@@ -644662,6 +644806,8 @@ MonoBehaviour:
     - X: Jump
 
     - D-pad Right: Respawn'
+  selectSFX: {fileID: 8300000, guid: 933bed7fcdb36784b8227207380ba05d, type: 3}
+  selectVolume: 0.3
 --- !u!114 &1127903314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -644993,6 +645139,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 449037631}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: terminalBox
       value: 
       objectReference: {fileID: 449037631}
@@ -645004,6 +645158,14 @@ PrefabInstance:
       propertyPath: terminalText
       value: 
       objectReference: {fileID: 733642027}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a36b3f0f1a69f64abb9594739fe4107, type: 3}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1acbce71dcf390e4080d61fbe1711f0c, type: 3}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: timeBeforeHide
       value: 2
@@ -645324,6 +645486,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 449037631}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: terminalBox
       value: 
       objectReference: {fileID: 449037631}
@@ -645335,6 +645505,14 @@ PrefabInstance:
       propertyPath: terminalText
       value: 
       objectReference: {fileID: 733642027}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a36b3f0f1a69f64abb9594739fe4107, type: 3}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1acbce71dcf390e4080d61fbe1711f0c, type: 3}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: timeBeforeHide
       value: 2
@@ -645597,6 +645775,7 @@ GameObject:
   - component: {fileID: 1211816039}
   - component: {fileID: 1211816038}
   - component: {fileID: 1211816037}
+  - component: {fileID: 1211816045}
   m_Layer: 7
   m_Name: Mover
   m_TagString: Player
@@ -645661,6 +645840,10 @@ MonoBehaviour:
   groundCheckOffset: {x: 0, y: -0.5}
   animator: {fileID: 1211816037}
   respawnOffset: {x: 0.75, y: 1}
+  jumpSFX: {fileID: 8300000, guid: f461962c5a418174282ade3ea0b81a18, type: 3}
+  jumpVolume: 0.5
+  deathSFX: {fileID: 8300000, guid: eff383e7f04f85546a9f2f9470235a66, type: 3}
+  deathVolume: 0.4
   warningIcon: {fileID: 537370904}
   isRebooting: 0
 --- !u!114 &1211816040
@@ -645849,6 +646032,21 @@ Transform:
   - {fileID: 537370906}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1211816045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211816036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b8d821da44d91840802e6304a5cd052, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoverFootsteps
+  footstepSFX: {fileID: 8300000, guid: 410a5ca4ef8296e42bfe91e7b840cfcd, type: 3}
+  footstepVol: 0.3
+  footstepDelay: 0.3
 --- !u!1001 &1221106427
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -645874,6 +646072,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 449037631}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: terminalBox
       value: 
       objectReference: {fileID: 449037631}
@@ -645885,6 +646091,14 @@ PrefabInstance:
       propertyPath: terminalText
       value: 
       objectReference: {fileID: 733642027}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a36b3f0f1a69f64abb9594739fe4107, type: 3}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1acbce71dcf390e4080d61fbe1711f0c, type: 3}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: timeBeforeHide
       value: 2
@@ -646651,6 +646865,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 449037631}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: terminalBox
       value: 
       objectReference: {fileID: 449037631}
@@ -646662,6 +646884,14 @@ PrefabInstance:
       propertyPath: terminalText
       value: 
       objectReference: {fileID: 733642027}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a36b3f0f1a69f64abb9594739fe4107, type: 3}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1acbce71dcf390e4080d61fbe1711f0c, type: 3}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: timeBeforeHide
       value: 2
@@ -646933,6 +647163,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 449037631}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: terminalBox
       value: 
       objectReference: {fileID: 449037631}
@@ -646944,6 +647182,14 @@ PrefabInstance:
       propertyPath: terminalText
       value: 
       objectReference: {fileID: 733642027}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a36b3f0f1a69f64abb9594739fe4107, type: 3}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1acbce71dcf390e4080d61fbe1711f0c, type: 3}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: timeBeforeHide
       value: 2
@@ -652409,6 +652655,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 449037631}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: terminalBox
       value: 
       objectReference: {fileID: 449037631}
@@ -652420,6 +652674,14 @@ PrefabInstance:
       propertyPath: terminalText
       value: 
       objectReference: {fileID: 733642027}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a36b3f0f1a69f64abb9594739fe4107, type: 3}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1acbce71dcf390e4080d61fbe1711f0c, type: 3}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: timeBeforeHide
       value: 2
@@ -652714,6 +652976,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpawnAnticheat
   anticheatPrefab: {fileID: 6483949636753900635, guid: c037d64d8d3cc26f08e13d92fbf56a0c, type: 3}
   spawnPoint: {fileID: 1253695794}
+  spawnSFX: {fileID: 8300000, guid: c762b73646e5a3e44927e3f8d0b0cfeb, type: 3}
+  volume: 0.3
 --- !u!212 &1509016411
 SpriteRenderer:
   serializedVersion: 2
@@ -652832,6 +653096,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2084232076}
     m_Modifications:
+    - target: {fileID: 2218122697757025529, guid: 18ffce7a26558b6a79bc5c062786339c, type: 3}
+      propertyPath: deathSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 58276cf6470e09b4587cd3074c11c02d, type: 3}
+    - target: {fileID: 2218122697757025529, guid: 18ffce7a26558b6a79bc5c062786339c, type: 3}
+      propertyPath: deathVolume
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 7266423395925764584, guid: 18ffce7a26558b6a79bc5c062786339c, type: 3}
       propertyPath: m_Name
       value: laser (1)
@@ -657934,7 +658206,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: c8e9fe80c049b9945a3094d31cd4e881, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.05
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -663639,6 +663911,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 449037631}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: terminalBox
       value: 
       objectReference: {fileID: 449037631}
@@ -663650,6 +663930,14 @@ PrefabInstance:
       propertyPath: terminalText
       value: 
       objectReference: {fileID: 733642027}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a36b3f0f1a69f64abb9594739fe4107, type: 3}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1acbce71dcf390e4080d61fbe1711f0c, type: 3}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: timeBeforeHide
       value: 2
@@ -664124,6 +664412,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 449037631}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: terminalBox
       value: 
       objectReference: {fileID: 449037631}
@@ -664135,6 +664431,14 @@ PrefabInstance:
       propertyPath: terminalText
       value: 
       objectReference: {fileID: 733642027}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a36b3f0f1a69f64abb9594739fe4107, type: 3}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1acbce71dcf390e4080d61fbe1711f0c, type: 3}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: timeBeforeHide
       value: 2
@@ -669798,6 +670102,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 449037631}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: terminalBox
       value: 
       objectReference: {fileID: 449037631}
@@ -669809,6 +670121,14 @@ PrefabInstance:
       propertyPath: terminalText
       value: 
       objectReference: {fileID: 733642027}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a36b3f0f1a69f64abb9594739fe4107, type: 3}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1acbce71dcf390e4080d61fbe1711f0c, type: 3}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: timeBeforeHide
       value: 2
@@ -670090,6 +670410,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 449037631}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: terminalBox
       value: 
       objectReference: {fileID: 449037631}
@@ -670101,6 +670429,14 @@ PrefabInstance:
       propertyPath: terminalText
       value: 
       objectReference: {fileID: 733642027}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a36b3f0f1a69f64abb9594739fe4107, type: 3}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1acbce71dcf390e4080d61fbe1711f0c, type: 3}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: timeBeforeHide
       value: 2
@@ -670372,6 +670708,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 449037631}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: terminalBox
       value: 
       objectReference: {fileID: 449037631}
@@ -670383,6 +670727,14 @@ PrefabInstance:
       propertyPath: terminalText
       value: 
       objectReference: {fileID: 733642027}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a36b3f0f1a69f64abb9594739fe4107, type: 3}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1acbce71dcf390e4080d61fbe1711f0c, type: 3}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: timeBeforeHide
       value: 2
@@ -680828,3 +681180,4 @@ SceneRoots:
   - {fileID: 2084232076}
   - {fileID: 659539183}
   - {fileID: 1032292381}
+  - {fileID: 787812749}
