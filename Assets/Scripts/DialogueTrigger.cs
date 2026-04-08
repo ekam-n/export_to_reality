@@ -35,9 +35,9 @@ public class DialogueTrigger : MonoBehaviour
 
     [Header("SFX")]
     [SerializeField] private AudioClip moverSpeakSFX;
-    [SerializeField] private float moverVolume = 0.3f;
+    private float moverVolume = 0.3f;
     [SerializeField] private AudioClip makerSpeakSFX;
-    [SerializeField] private float makerVolume = 0.3f;
+    private float makerVolume = 0.3f;
     private IEnumerator sfxCoroutine;
 
     private static DialogueTrigger s_active = null;

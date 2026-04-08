@@ -19,7 +19,7 @@ public class StunAnticheat : MonoBehaviour
 
     [Header("SFX")]
     [SerializeField] private AudioClip stunSFX;
-    [SerializeField] private float volume = 0.2f;
+    private float volume = 0.2f;
 
     private Rigidbody2D rb;
     private float originalGravity;

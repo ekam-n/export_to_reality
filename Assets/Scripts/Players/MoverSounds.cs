@@ -5,8 +5,8 @@ using UnityEngine.InputSystem;
 public class MoverSounds : MonoBehaviour
 {
     [SerializeField] private AudioClip footstepSFX;
-    [SerializeField] private float footstepVol = 0.3f;
-    [SerializeField] private float footstepDelay = 0.3f;
+    private float footstepVol = 0.3f;
+    private float footstepDelay = 0.3f;
     
     private MoverController2D moverController2D;
 

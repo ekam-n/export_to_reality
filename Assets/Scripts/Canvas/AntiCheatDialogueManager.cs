@@ -11,7 +11,8 @@ public class AntiCheatDialogueManager : MonoBehaviour
 
     [Header("SFX")]
     [SerializeField] private AudioClip talkSFX;
-    [SerializeField] private float talkVolume = 0.3f;
+    private float talkVolume = 0.3f;
+    private IEnumerator sfxCoroutine;
 
     private float timer;
 
@@ -41,7 +42,6 @@ public class AntiCheatDialogueManager : MonoBehaviour
             timer = 0f;
             StopAllCoroutines();
             StartCoroutine(ShowMessage());
-            StartCoroutine(SpeakSound());
         }
     }
 
@@ -52,11 +52,16 @@ public class AntiCheatDialogueManager : MonoBehaviour
         popupText.text = "";
         popupText.transform.parent.gameObject.SetActive(true);
 
+        sfxCoroutine = SpeakSound();
+        StartCoroutine(sfxCoroutine);
+
         foreach (char c in message)
         {
             popupText.text += c;
             yield return new WaitForSeconds(typingSpeed);
         }
+
+        StopCoroutine(sfxCoroutine);
 
         yield return new WaitForSeconds(timeBeforeHide);
 

@@ -342,6 +342,8 @@ MonoBehaviour:
   cloneAnimator: {fileID: 1720045283863846413}
   ghostPrefab: {fileID: 7897704904004840905, guid: db642781ef84b94dcb179c85a3d474db, type: 3}
   distanceBetweenImages: 0.5
+  moverDeathSFX: {fileID: 8300000, guid: eff383e7f04f85546a9f2f9470235a66, type: 3}
+  moverDeathVol: 1
 --- !u!61 &5872094361932890319
 BoxCollider2D:
   m_ObjectHideFlags: 0

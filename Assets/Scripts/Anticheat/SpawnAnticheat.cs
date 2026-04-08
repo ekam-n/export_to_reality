@@ -5,7 +5,7 @@ public class SpawnAnticheat : MonoBehaviour
     public GameObject anticheatPrefab;
     public Transform spawnPoint;
     [SerializeField] private AudioClip spawnSFX;
-    [SerializeField] private float volume = 0.2f;
+    private float volume = 0.2f;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

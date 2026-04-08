@@ -10,6 +10,10 @@ public class PursuitPlayer : MonoBehaviour
     [Header("After-Image Settings")]
     [SerializeField] private GameObject ghostPrefab;
     [SerializeField] private float distanceBetweenImages = 1.0F;
+
+    [Header("SFX")]
+    [SerializeField] private AudioClip moverDeathSFX;
+    private float moverDeathVol = 0.3f;
     private Vector3 lastImagePos;
 
     void FixedUpdate()
@@ -62,6 +66,7 @@ public class PursuitPlayer : MonoBehaviour
         {
             Debug.Log("Caught by Anticheat");
             playerScript.ResetPlayer();
+            AudioManager.instance.PlaySFX(moverDeathSFX, moverDeathVol);
             PathRecord.recordedSnapshots.Clear();
             Destroy(gameObject);
         }

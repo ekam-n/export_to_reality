@@ -49,13 +49,13 @@ public class PlacementManager2D : MonoBehaviour
 
     [Header("SFX")]
     [SerializeField] private AudioClip selectSFX;
-    [SerializeField] private float selectVolume = 0.3f;
+    private float selectVolume = 0.3f;
     [SerializeField] private AudioClip clearSFX;
-    [SerializeField] private float clearVolume = 0.3f;
+    private float clearVolume = 0.4f;
     [SerializeField] private AudioClip placeSFX;
-    [SerializeField] private float placeVolume = 0.3f;
+    private float placeVolume = 0.3f;
     [SerializeField] private AudioClip rotateSFX;
-    [SerializeField] private float rotateVolume = 0.3f;
+    private float rotateVolume = 0.5f;
 
     private readonly List<GameObject> placedPlatforms = new();
 
@@ -313,6 +313,8 @@ private void UpdateButtonVisuals(int activeIndex)
         if (marker == null) return false;
 
         RemovePlatform(marker.gameObject);
+        AudioManager.instance.PlaySFX(clearSFX, clearVolume);
+
         return true;
     }
 

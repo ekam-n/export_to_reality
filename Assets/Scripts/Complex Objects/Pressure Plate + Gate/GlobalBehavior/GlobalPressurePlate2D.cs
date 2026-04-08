@@ -9,9 +9,9 @@ public class GlobalPressurePlate2D : MonoBehaviour
 
     [Header("SFX")]
     [SerializeField] private AudioClip moverBtnSFX;
-    [SerializeField] private float moverBtnVolume = 0.3f;
+    private float moverBtnVolume = 0.4f;
     [SerializeField] private AudioClip makerBtnSFX;
-    [SerializeField] private float makerBtnVolume = 0.3f;
+    private float makerBtnVolume = 0.4f;
 
     // Static Dictionary: This is the "Shared Memory" for the whole game
     private static readonly Dictionary<int, bool> _channelStates = new Dictionary<int, bool>();

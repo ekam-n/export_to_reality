@@ -31,7 +31,7 @@ MOVER
 - (Add other controls here)";
 
     [SerializeField] private AudioClip selectSFX;
-    [SerializeField] private float selectVolume = 0.3f;
+    private float selectVolume = 0.3f;
 
     private bool isOpen;
 

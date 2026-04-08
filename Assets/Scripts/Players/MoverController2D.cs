@@ -22,9 +22,9 @@ public class MoverController2D : MonoBehaviour
 
     [Header("SFX")]
     [SerializeField] private AudioClip jumpSFX;
-    [SerializeField] private float jumpVolume = 0.6f;
+    private float jumpVolume = 0.5f;
     [SerializeField] private AudioClip deathSFX;
-    [SerializeField] private float deathVolume = 0.3f;
+    private float deathVolume = 0.3f;
 
     private Rigidbody2D rb;
     private Vector2 moveInput;
