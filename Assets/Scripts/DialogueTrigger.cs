@@ -33,6 +33,13 @@ public class DialogueTrigger : MonoBehaviour
     [SerializeField] private float cursorBlinkRate = 0.53f;
     [SerializeField] private float timeBeforeHide = 8f;
 
+    [Header("SFX")]
+    [SerializeField] private AudioClip moverSpeakSFX;
+    private float moverVolume = 0.3f;
+    [SerializeField] private AudioClip makerSpeakSFX;
+    private float makerVolume = 0.3f;
+    private IEnumerator sfxCoroutine;
+
     private static DialogueTrigger s_active = null;
     private static DialogueTrigger s_pending = null;
 
@@ -173,6 +180,9 @@ public class DialogueTrigger : MonoBehaviour
 
         if (line.target == DialogueTarget.Terminal)
         {
+            sfxCoroutine = SpeakSound(makerSpeakSFX, makerVolume);  // config coroutine to use maker sfx
+            StartCoroutine(sfxCoroutine);
+
             if (terminalBox != null) terminalBox.SetActive(true);
 
             terminalCompletedText = "";
@@ -188,12 +198,17 @@ public class DialogueTrigger : MonoBehaviour
                 yield return new WaitForSeconds(typingSpeed);
             }
 
+            StopCoroutine(sfxCoroutine);
+
             terminalCompletedText = terminalCurrentLine;
             terminalCurrentLine = "";
             UpdateTerminalDisplay();
         }
         else // Mover
         {
+            sfxCoroutine = SpeakSound(moverSpeakSFX, moverVolume);  // config coroutine to use mover sfx
+            StartCoroutine(sfxCoroutine);
+
             if (moverBox != null) moverBox.SetActive(true);
 
             moverCurrentLine = "";
@@ -205,9 +220,23 @@ public class DialogueTrigger : MonoBehaviour
                 if (moverText != null) moverText.text = moverCurrentLine;
                 yield return new WaitForSeconds(typingSpeed);
             }
+
+            StopCoroutine(sfxCoroutine);
         }
 
         isTyping = false;
+    }
+
+    private IEnumerator SpeakSound(AudioClip audioClip, float volume)
+    {
+        while (true)
+        {
+            if (isTyping)
+            {
+                AudioManager.instance.PlaySFX(audioClip, volume);
+            }
+            yield return new WaitForSeconds(audioClip.length);
+        }
     }
 
     private void UpdateTerminalDisplay()

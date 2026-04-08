@@ -250,6 +250,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: makerBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 640348bf93453a04d9c05e241a36e411, type: 3}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: moverBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 8938d48f9b88d4643b7eed111085a947, type: 3}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: makerBtnVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: moverBtnVolume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8377371768502901858, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
       propertyPath: m_Name
       value: MakerPressurePlate Variant (3)
@@ -914,6 +930,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: MoverPressurePlate Variant (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4321159243254586448, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
+      propertyPath: makerBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 640348bf93453a04d9c05e241a36e411, type: 3}
+    - target: {fileID: 4321159243254586448, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
+      propertyPath: moverBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 8938d48f9b88d4643b7eed111085a947, type: 3}
+    - target: {fileID: 4321159243254586448, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
+      propertyPath: makerBtnVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321159243254586448, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
+      propertyPath: moverBtnVolume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8226274481208036770, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 49.089966
@@ -1148,6 +1180,14 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  selectSFX: {fileID: 8300000, guid: 933bed7fcdb36784b8227207380ba05d, type: 3}
+  selectVolume: 0.3
+  clearSFX: {fileID: 8300000, guid: 9969d3645d28eab48b6e21316702a860, type: 3}
+  clearVolume: 0.4
+  placeSFX: {fileID: 8300000, guid: d134e5b45f1564a4d9698eccda3fd323, type: 3}
+  placeVolume: 0.3
+  rotateSFX: {fileID: 8300000, guid: 768535289cb49834f83ff0fdbfd65b94, type: 3}
+  rotateVolume: 0.5
 --- !u!4 &137987232
 Transform:
   m_ObjectHideFlags: 0
@@ -1179,6 +1219,7 @@ GameObject:
   - component: {fileID: 139267510}
   - component: {fileID: 139267511}
   - component: {fileID: 139267512}
+  - component: {fileID: 139267513}
   m_Layer: 7
   m_Name: Mover
   m_TagString: Player
@@ -1393,7 +1434,11 @@ MonoBehaviour:
   groundCheckOffset: {x: 0, y: -0.5}
   animator: {fileID: 139267512}
   respawnOffset: {x: 0.75, y: 1}
-  warningIcon: {fileID: 310734495}
+  jumpSFX: {fileID: 8300000, guid: f461962c5a418174282ade3ea0b81a18, type: 3}
+  jumpVolume: 0.5
+  deathSFX: {fileID: 8300000, guid: eff383e7f04f85546a9f2f9470235a66, type: 3}
+  deathVolume: 0.3
+  warningIcon: {fileID: 0}
   isRebooting: 0
 --- !u!114 &139267511
 MonoBehaviour:
@@ -1431,6 +1476,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &139267513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139267504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b8d821da44d91840802e6304a5cd052, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoverSounds
+  footstepSFX: {fileID: 8300000, guid: 410a5ca4ef8296e42bfe91e7b840cfcd, type: 3}
+  footstepVol: 0.3
+  footstepDelay: 0.3
 --- !u!1001 &142494320
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1907,6 +1967,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: terminalBox
       value: 
       objectReference: {fileID: 37242686}
@@ -1918,6 +1986,14 @@ PrefabInstance:
       propertyPath: terminalText
       value: 
       objectReference: {fileID: 1137934511}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a36b3f0f1a69f64abb9594739fe4107, type: 3}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1acbce71dcf390e4080d61fbe1711f0c, type: 3}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: timeBeforeHide
       value: 2
@@ -7768,6 +7844,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: makerBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 640348bf93453a04d9c05e241a36e411, type: 3}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: moverBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 8938d48f9b88d4643b7eed111085a947, type: 3}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: makerBtnVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: moverBtnVolume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8377371768502901858, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
       propertyPath: m_Name
       value: MakerPressurePlate Variant (5)
@@ -7824,6 +7916,22 @@ PrefabInstance:
     - target: {fileID: 3014106479912682768, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: makerBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 640348bf93453a04d9c05e241a36e411, type: 3}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: moverBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 8938d48f9b88d4643b7eed111085a947, type: 3}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: makerBtnVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: moverBtnVolume
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8377371768502901858, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
       propertyPath: m_Name
@@ -7960,6 +8068,22 @@ PrefabInstance:
     - target: {fileID: 3440679666743137488, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
       propertyPath: m_Name
       value: MoverPressurePlate Variant (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321159243254586448, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
+      propertyPath: makerBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 640348bf93453a04d9c05e241a36e411, type: 3}
+    - target: {fileID: 4321159243254586448, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
+      propertyPath: moverBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 8938d48f9b88d4643b7eed111085a947, type: 3}
+    - target: {fileID: 4321159243254586448, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
+      propertyPath: makerBtnVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321159243254586448, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
+      propertyPath: moverBtnVolume
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8226274481208036770, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9458,6 +9582,22 @@ PrefabInstance:
     - target: {fileID: 3014106479912682768, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: makerBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 640348bf93453a04d9c05e241a36e411, type: 3}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: moverBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 8938d48f9b88d4643b7eed111085a947, type: 3}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: makerBtnVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: moverBtnVolume
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8377371768502901858, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
       propertyPath: m_Name
@@ -15311,6 +15451,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: terminalBox
       value: 
       objectReference: {fileID: 37242686}
@@ -15322,6 +15470,14 @@ PrefabInstance:
       propertyPath: terminalText
       value: 
       objectReference: {fileID: 1137934511}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a36b3f0f1a69f64abb9594739fe4107, type: 3}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1acbce71dcf390e4080d61fbe1711f0c, type: 3}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: timeBeforeHide
       value: 2
@@ -15620,6 +15776,22 @@ PrefabInstance:
     - target: {fileID: 3014106479912682768, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: makerBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 640348bf93453a04d9c05e241a36e411, type: 3}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: moverBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 8938d48f9b88d4643b7eed111085a947, type: 3}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: makerBtnVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: moverBtnVolume
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8377371768502901858, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
       propertyPath: m_Name
@@ -20625,6 +20797,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: makerBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 640348bf93453a04d9c05e241a36e411, type: 3}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: moverBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 8938d48f9b88d4643b7eed111085a947, type: 3}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: makerBtnVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: moverBtnVolume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8377371768502901858, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
       propertyPath: m_Name
       value: MakerPressurePlate Variant (1)
@@ -20659,6 +20847,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: terminalBox
       value: 
       objectReference: {fileID: 37242686}
@@ -20670,6 +20866,14 @@ PrefabInstance:
       propertyPath: terminalText
       value: 
       objectReference: {fileID: 1137934511}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a36b3f0f1a69f64abb9594739fe4107, type: 3}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1acbce71dcf390e4080d61fbe1711f0c, type: 3}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: timeBeforeHide
       value: 2
@@ -21019,6 +21223,22 @@ PrefabInstance:
     - target: {fileID: 3014106479912682768, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: makerBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 640348bf93453a04d9c05e241a36e411, type: 3}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: moverBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 8938d48f9b88d4643b7eed111085a947, type: 3}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: makerBtnVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: moverBtnVolume
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8377371768502901858, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
       propertyPath: m_Name
@@ -21611,6 +21831,22 @@ PrefabInstance:
     - target: {fileID: 3440679666743137488, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
       propertyPath: m_Name
       value: MoverPressurePlate Variant (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321159243254586448, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
+      propertyPath: makerBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 640348bf93453a04d9c05e241a36e411, type: 3}
+    - target: {fileID: 4321159243254586448, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
+      propertyPath: moverBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 8938d48f9b88d4643b7eed111085a947, type: 3}
+    - target: {fileID: 4321159243254586448, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
+      propertyPath: makerBtnVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321159243254586448, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
+      propertyPath: moverBtnVolume
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8226274481208036770, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27437,6 +27673,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpawnAnticheat
   anticheatPrefab: {fileID: 6483949636753900635, guid: c037d64d8d3cc26f08e13d92fbf56a0c, type: 3}
   spawnPoint: {fileID: 387962275}
+  spawnSFX: {fileID: 8300000, guid: c762b73646e5a3e44927e3f8d0b0cfeb, type: 3}
+  volume: 0.2
 --- !u!212 &940510572
 SpriteRenderer:
   serializedVersion: 2
@@ -27521,6 +27759,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: terminalBox
       value: 
       objectReference: {fileID: 37242686}
@@ -27532,6 +27778,14 @@ PrefabInstance:
       propertyPath: terminalText
       value: 
       objectReference: {fileID: 1137934511}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a36b3f0f1a69f64abb9594739fe4107, type: 3}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1acbce71dcf390e4080d61fbe1711f0c, type: 3}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: timeBeforeHide
       value: 2
@@ -604911,6 +605165,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: terminalBox
       value: 
       objectReference: {fileID: 37242686}
@@ -604922,6 +605184,14 @@ PrefabInstance:
       propertyPath: terminalText
       value: 
       objectReference: {fileID: 1137934511}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a36b3f0f1a69f64abb9594739fe4107, type: 3}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1acbce71dcf390e4080d61fbe1711f0c, type: 3}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: timeBeforeHide
       value: 2
@@ -605880,6 +606150,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: MoverPressurePlate Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4321159243254586448, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
+      propertyPath: makerBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 640348bf93453a04d9c05e241a36e411, type: 3}
+    - target: {fileID: 4321159243254586448, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
+      propertyPath: moverBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 8938d48f9b88d4643b7eed111085a947, type: 3}
+    - target: {fileID: 4321159243254586448, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
+      propertyPath: makerBtnVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321159243254586448, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
+      propertyPath: moverBtnVolume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8226274481208036770, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 53.19995
@@ -606319,6 +606605,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: terminalBox
       value: 
       objectReference: {fileID: 37242686}
@@ -606330,6 +606624,14 @@ PrefabInstance:
       propertyPath: terminalText
       value: 
       objectReference: {fileID: 1137934511}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a36b3f0f1a69f64abb9594739fe4107, type: 3}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1acbce71dcf390e4080d61fbe1711f0c, type: 3}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: timeBeforeHide
       value: 2
@@ -606624,6 +606926,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: makerBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 640348bf93453a04d9c05e241a36e411, type: 3}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: moverBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 8938d48f9b88d4643b7eed111085a947, type: 3}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: makerBtnVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: moverBtnVolume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8377371768502901858, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
       propertyPath: m_Name
       value: MakerPressurePlate Variant (2)
@@ -606658,6 +606976,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: terminalBox
       value: 
       objectReference: {fileID: 37242686}
@@ -606669,6 +606995,14 @@ PrefabInstance:
       propertyPath: terminalText
       value: 
       objectReference: {fileID: 1137934511}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a36b3f0f1a69f64abb9594739fe4107, type: 3}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1acbce71dcf390e4080d61fbe1711f0c, type: 3}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: timeBeforeHide
       value: 2
@@ -606998,6 +607332,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284116179}
     m_Modifications:
+    - target: {fileID: 2218122697757025529, guid: 18ffce7a26558b6a79bc5c062786339c, type: 3}
+      propertyPath: deathSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 58276cf6470e09b4587cd3074c11c02d, type: 3}
+    - target: {fileID: 2218122697757025529, guid: 18ffce7a26558b6a79bc5c062786339c, type: 3}
+      propertyPath: deathVolume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7266423395925764584, guid: 18ffce7a26558b6a79bc5c062786339c, type: 3}
       propertyPath: m_Name
       value: laser
@@ -607301,6 +607643,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpawnAnticheat
   anticheatPrefab: {fileID: 6483949636753900635, guid: c037d64d8d3cc26f08e13d92fbf56a0c, type: 3}
   spawnPoint: {fileID: 1054882670}
+  spawnSFX: {fileID: 8300000, guid: c762b73646e5a3e44927e3f8d0b0cfeb, type: 3}
+  volume: 0.2
 --- !u!212 &1509016411
 SpriteRenderer:
   serializedVersion: 2
@@ -607467,6 +607811,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: terminalBox
       value: 
       objectReference: {fileID: 37242686}
@@ -607478,6 +607830,14 @@ PrefabInstance:
       propertyPath: terminalText
       value: 
       objectReference: {fileID: 1137934511}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a36b3f0f1a69f64abb9594739fe4107, type: 3}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1acbce71dcf390e4080d61fbe1711f0c, type: 3}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: timeBeforeHide
       value: 2
@@ -612647,6 +613007,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: MoverPressurePlate Variant (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4321159243254586448, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
+      propertyPath: makerBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 640348bf93453a04d9c05e241a36e411, type: 3}
+    - target: {fileID: 4321159243254586448, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
+      propertyPath: moverBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 8938d48f9b88d4643b7eed111085a947, type: 3}
+    - target: {fileID: 4321159243254586448, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
+      propertyPath: makerBtnVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321159243254586448, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
+      propertyPath: moverBtnVolume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8226274481208036770, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -52.849976
@@ -612832,6 +613208,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: MoverPressurePlate Variant (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 4321159243254586448, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
+      propertyPath: makerBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 640348bf93453a04d9c05e241a36e411, type: 3}
+    - target: {fileID: 4321159243254586448, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
+      propertyPath: moverBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 8938d48f9b88d4643b7eed111085a947, type: 3}
+    - target: {fileID: 4321159243254586448, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
+      propertyPath: makerBtnVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321159243254586448, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
+      propertyPath: moverBtnVolume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8226274481208036770, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -43
@@ -612925,6 +613317,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: makerBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 640348bf93453a04d9c05e241a36e411, type: 3}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: moverBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 8938d48f9b88d4643b7eed111085a947, type: 3}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: makerBtnVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: moverBtnVolume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8377371768502901858, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
       propertyPath: m_Name
       value: MakerPressurePlate Variant (7)
@@ -613009,7 +613417,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 21609ea3309e6f2f284f3554d2b5b156, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.05
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -613232,6 +613640,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7e532bd5ce3e8a38b581cced5c7427e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeleteAnticheats
+--- !u!1 &1591698367
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1591698369}
+  - component: {fileID: 1591698368}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1591698368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1591698367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d43505b795375541acde8d6dd5a01ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+--- !u!4 &1591698369
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1591698367}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 365.36044, y: -788.1124, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1601571318
 GameObject:
   m_ObjectHideFlags: 0
@@ -613859,6 +614311,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: makerBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 640348bf93453a04d9c05e241a36e411, type: 3}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: moverBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 8938d48f9b88d4643b7eed111085a947, type: 3}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: makerBtnVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: moverBtnVolume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8377371768502901858, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
       propertyPath: m_Name
       value: MakerPressurePlate Variant (6)
@@ -613946,6 +614414,8 @@ MonoBehaviour:
     - X: Jump
 
     - D-pad Right: Respawn'
+  selectSFX: {fileID: 8300000, guid: 933bed7fcdb36784b8227207380ba05d, type: 3}
+  selectVolume: 0.3
 --- !u!114 &1664168592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -614153,6 +614623,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: terminalBox
       value: 
       objectReference: {fileID: 37242686}
@@ -614164,6 +614642,14 @@ PrefabInstance:
       propertyPath: terminalText
       value: 
       objectReference: {fileID: 1137934511}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a36b3f0f1a69f64abb9594739fe4107, type: 3}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1acbce71dcf390e4080d61fbe1711f0c, type: 3}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: timeBeforeHide
       value: 2
@@ -614571,6 +615057,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: terminalBox
       value: 
       objectReference: {fileID: 37242686}
@@ -614582,6 +615076,14 @@ PrefabInstance:
       propertyPath: terminalText
       value: 
       objectReference: {fileID: 1137934511}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a36b3f0f1a69f64abb9594739fe4107, type: 3}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1acbce71dcf390e4080d61fbe1711f0c, type: 3}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: timeBeforeHide
       value: 2
@@ -614898,6 +615400,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: terminalBox
       value: 
       objectReference: {fileID: 37242686}
@@ -614909,6 +615419,14 @@ PrefabInstance:
       propertyPath: terminalText
       value: 
       objectReference: {fileID: 1137934511}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: makerSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a36b3f0f1a69f64abb9594739fe4107, type: 3}
+    - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
+      propertyPath: moverSpeakSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1acbce71dcf390e4080d61fbe1711f0c, type: 3}
     - target: {fileID: 3891793413277405658, guid: 73c8bd360f62607b2b620b031d947c18, type: 3}
       propertyPath: timeBeforeHide
       value: 2
@@ -631043,6 +631561,8 @@ MonoBehaviour:
   interval: 180
   typingSpeed: 0.04
   timeBeforeHide: 8
+  talkSFX: {fileID: 8300000, guid: 6111df15b100283449befd2fe3bcb4e3, type: 3}
+  talkVolume: 0.4
 --- !u!4 &2115207313
 Transform:
   m_ObjectHideFlags: 0
@@ -631186,6 +631706,22 @@ PrefabInstance:
     - target: {fileID: 3440679666743137488, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
       propertyPath: m_Name
       value: MoverPressurePlate Variant (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321159243254586448, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
+      propertyPath: makerBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 640348bf93453a04d9c05e241a36e411, type: 3}
+    - target: {fileID: 4321159243254586448, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
+      propertyPath: moverBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 8938d48f9b88d4643b7eed111085a947, type: 3}
+    - target: {fileID: 4321159243254586448, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
+      propertyPath: makerBtnVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321159243254586448, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
+      propertyPath: moverBtnVolume
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8226274481208036770, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -631401,6 +631937,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: MoverPressurePlate Variant (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4321159243254586448, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
+      propertyPath: makerBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 640348bf93453a04d9c05e241a36e411, type: 3}
+    - target: {fileID: 4321159243254586448, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
+      propertyPath: moverBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 8938d48f9b88d4643b7eed111085a947, type: 3}
+    - target: {fileID: 4321159243254586448, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
+      propertyPath: makerBtnVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321159243254586448, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
+      propertyPath: moverBtnVolume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8226274481208036770, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -135.2
@@ -631494,6 +632046,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: makerBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 640348bf93453a04d9c05e241a36e411, type: 3}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: moverBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 8938d48f9b88d4643b7eed111085a947, type: 3}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: makerBtnVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5625966131691134537, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
+      propertyPath: moverBtnVolume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8377371768502901858, guid: 2f3a9c44cc139d23398b6d23878b9ed8, type: 3}
       propertyPath: m_Name
       value: MakerPressurePlate
@@ -631511,6 +632079,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284116179}
     m_Modifications:
+    - target: {fileID: 2218122697757025529, guid: 18ffce7a26558b6a79bc5c062786339c, type: 3}
+      propertyPath: deathSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 58276cf6470e09b4587cd3074c11c02d, type: 3}
+    - target: {fileID: 2218122697757025529, guid: 18ffce7a26558b6a79bc5c062786339c, type: 3}
+      propertyPath: deathVolume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7266423395925764584, guid: 18ffce7a26558b6a79bc5c062786339c, type: 3}
       propertyPath: m_Name
       value: laser
@@ -631763,6 +632339,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: MoverPressurePlate
       objectReference: {fileID: 0}
+    - target: {fileID: 4321159243254586448, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
+      propertyPath: makerBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 640348bf93453a04d9c05e241a36e411, type: 3}
+    - target: {fileID: 4321159243254586448, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
+      propertyPath: moverBtnSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 8938d48f9b88d4643b7eed111085a947, type: 3}
+    - target: {fileID: 4321159243254586448, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
+      propertyPath: makerBtnVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321159243254586448, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
+      propertyPath: moverBtnVolume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8226274481208036770, guid: cd53af804159e08cd8bb9fe7265963a8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -631895,3 +632487,4 @@ SceneRoots:
   - {fileID: 1155772709}
   - {fileID: 2141712765}
   - {fileID: 849678815}
+  - {fileID: 1591698369}

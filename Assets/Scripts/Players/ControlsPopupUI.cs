@@ -15,7 +15,8 @@ public class ControlsPopupUI : MonoBehaviour
     [SerializeField] private string hideLabel = "Hide Controls";
 
     [TextArea(6, 30)]
-    [SerializeField] private string controlsBody =
+    [SerializeField]
+    private string controlsBody =
 @"MAKER
 - Left Click: Place platform
 - Right Click: Delete platform
@@ -28,6 +29,9 @@ MOVER
 - A/D or Left/Right: Move
 - Space: Jump
 - (Add other controls here)";
+
+    [SerializeField] private AudioClip selectSFX;
+    private float selectVolume = 0.3f;
 
     private bool isOpen;
 
@@ -47,6 +51,7 @@ MOVER
     public void Toggle()
     {
         SetOpen(!isOpen);
+        AudioManager.instance.PlaySFX(selectSFX, selectVolume);
     }
 
     public void SetOpen(bool open)

@@ -154,3 +154,5 @@ MonoBehaviour:
   currentState: 0
   shakeDuration: 2
   bsodColor: {r: 0, g: 0, b: 1, a: 1}
+  deathSFX: {fileID: 8300000, guid: 58276cf6470e09b4587cd3074c11c02d, type: 3}
+  deathVolume: 0.3

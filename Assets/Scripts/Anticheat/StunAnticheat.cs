@@ -17,6 +17,10 @@ public class StunAnticheat : MonoBehaviour
     [SerializeField] private ParticleSystem dizzyParticles;
     [SerializeField] private GameObject rewindIcon;
 
+    [Header("SFX")]
+    [SerializeField] private AudioClip stunSFX;
+    private float volume = 0.2f;
+
     private Rigidbody2D rb;
     private float originalGravity;
     private List<Vector3> bouncePath = new List<Vector3>();
@@ -74,6 +78,8 @@ public class StunAnticheat : MonoBehaviour
         rb.AddForce(hitDirection.normalized * bounceForce, ForceMode2D.Impulse);
         float faceDir = Mathf.Sign(hitDirection.x);
         transform.localScale = new Vector3(faceDir * Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+
+        AudioManager.instance.PlaySFX(stunSFX, volume);
     }
 
     private void HandleBouncingLogic()

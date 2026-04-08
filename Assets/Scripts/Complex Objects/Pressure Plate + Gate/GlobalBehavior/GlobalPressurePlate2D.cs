@@ -7,6 +7,12 @@ public class GlobalPressurePlate2D : MonoBehaviour
     [SerializeField] private LayerMask pressMask;
     [SerializeField] private int channelID = 0;
 
+    [Header("SFX")]
+    [SerializeField] private AudioClip moverBtnSFX;
+    private float moverBtnVolume = 0.4f;
+    [SerializeField] private AudioClip makerBtnSFX;
+    private float makerBtnVolume = 0.4f;
+
     // Static Dictionary: This is the "Shared Memory" for the whole game
     private static readonly Dictionary<int, bool> _channelStates = new Dictionary<int, bool>();
     private static readonly Dictionary<int, int> _activeCounts = new Dictionary<int, int>();
@@ -27,7 +33,18 @@ public class GlobalPressurePlate2D : MonoBehaviour
             if (!_activeCounts.ContainsKey(channelID)) _activeCounts[channelID] = 0;
             _activeCounts[channelID]++;
             _channelStates[channelID] = true;
+
+            if (channelID == 0)     // maker
+            {
+                AudioManager.instance.PlaySFX(makerBtnSFX, makerBtnVolume);
+            }
+            else                    // mover
+            {
+                AudioManager.instance.PlaySFX(moverBtnSFX, moverBtnVolume);
+            }
         }
+
+        
     }
 
     private void OnTriggerExit2D(Collider2D other)
