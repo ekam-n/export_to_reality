@@ -3,17 +3,23 @@ using UnityEngine;
 public class UIActive : MonoBehaviour
 {
     [Header("Settings")]
-    public GameObject targetUI; // The UI element to watch
-    public bool matchTargetState = false; // True = same as target, False = opposite of target
+    public GameObject targetUI;
+    public bool matchTargetState = false;
 
     private bool _lastState;
+    private CanvasGroup _canvasGroup;
+
+    void Awake()
+    {
+        _canvasGroup = GetComponent<CanvasGroup>() ?? gameObject.AddComponent<CanvasGroup>();
+    }
 
     void Start()
     {
         if (targetUI != null)
         {
             _lastState = targetUI.activeInHierarchy;
-            ToggleChildren(_lastState);
+            Apply(matchTargetState ? _lastState : !_lastState);
         }
     }
 
@@ -22,20 +28,21 @@ public class UIActive : MonoBehaviour
         if (targetUI == null) return;
 
         bool currentState = targetUI.activeInHierarchy;
+        if (currentState == _lastState) return;
 
-        if (currentState != _lastState)
-        {
-            _lastState = currentState;
-            ToggleChildren(matchTargetState ? currentState : !currentState);
-        }
+        _lastState = currentState;
+        Apply(matchTargetState ? currentState : !currentState);
     }
 
-    void ToggleChildren(bool state)
+    void Apply(bool state)
     {
-        // Loops through every immediate child of this GameObject
+        // CanvasGroup hides/shows this object without deactivating it,
+        // so Update() keeps running and can re-activate when needed.
+        _canvasGroup.alpha          = state ? 1f : 0f;
+        _canvasGroup.interactable   = state;
+        _canvasGroup.blocksRaycasts = state;
+
         foreach (Transform child in transform)
-        {
             child.gameObject.SetActive(state);
-        }
     }
 }
