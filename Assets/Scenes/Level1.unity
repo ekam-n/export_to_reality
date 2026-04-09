@@ -959,9 +959,9 @@ RectTransform:
   - {fileID: 676499322}
   m_Father: {fileID: 1684130687}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -595, y: 378}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 365, y: -162}
   m_SizeDelta: {x: 700, y: 230}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &131073993
@@ -1085,13 +1085,9 @@ MonoBehaviour:
   - {fileID: 1615442805}
   - {fileID: 167484329}
   selectSFX: {fileID: 8300000, guid: 933bed7fcdb36784b8227207380ba05d, type: 3}
-  selectVolume: 0.3
   clearSFX: {fileID: 8300000, guid: 9969d3645d28eab48b6e21316702a860, type: 3}
-  clearVolume: 0.3
   placeSFX: {fileID: 8300000, guid: d134e5b45f1564a4d9698eccda3fd323, type: 3}
-  placeVolume: 0.3
   rotateSFX: {fileID: 8300000, guid: 768535289cb49834f83ff0fdbfd65b94, type: 3}
-  rotateVolume: 0.5
 --- !u!4 &137987232
 Transform:
   m_ObjectHideFlags: 0
@@ -7812,9 +7808,9 @@ RectTransform:
   - {fileID: 733642026}
   m_Father: {fileID: 1684130687}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -586.41, y: -384.34}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 373.59003, y: 155.66}
   m_SizeDelta: {x: 747.1689, y: 311.3204}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &449037633
@@ -30575,7 +30571,6 @@ MonoBehaviour:
   anticheatPrefab: {fileID: 6483949636753900635, guid: c037d64d8d3cc26f08e13d92fbf56a0c, type: 3}
   spawnPoint: {fileID: 1131865263}
   spawnSFX: {fileID: 8300000, guid: c762b73646e5a3e44927e3f8d0b0cfeb, type: 3}
-  volume: 0.3
 --- !u!212 &940510572
 SpriteRenderer:
   serializedVersion: 2
@@ -30869,10 +30864,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1684130687}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 851.7, y: 453.4}
-  m_SizeDelta: {x: 743.5793, y: 628.7009}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -108.29999, y: -86.600006}
+  m_SizeDelta: {x: 743.57935, y: 628.7009}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &969884043
 MonoBehaviour:
@@ -31054,7 +31049,6 @@ MonoBehaviour:
   typingSpeed: 0.04
   timeBeforeHide: 8
   talkSFX: {fileID: 8300000, guid: 6111df15b100283449befd2fe3bcb4e3, type: 3}
-  talkVolume: 0.3
 --- !u!4 &990269663
 Transform:
   m_ObjectHideFlags: 0
@@ -644762,10 +644756,10 @@ RectTransform:
   - {fileID: 53110574}
   m_Father: {fileID: 1684130687}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 10, y: 32}
-  m_SizeDelta: {x: -736.67126, y: -428.06567}
+  m_SizeDelta: {x: 1183.3287, y: 651.9343}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1127903313
 MonoBehaviour:
@@ -644807,7 +644801,6 @@ MonoBehaviour:
 
     - D-pad Right: Respawn'
   selectSFX: {fileID: 8300000, guid: 933bed7fcdb36784b8227207380ba05d, type: 3}
-  selectVolume: 0.3
 --- !u!114 &1127903314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -645841,9 +645834,7 @@ MonoBehaviour:
   animator: {fileID: 1211816037}
   respawnOffset: {x: 0.75, y: 1}
   jumpSFX: {fileID: 8300000, guid: f461962c5a418174282ade3ea0b81a18, type: 3}
-  jumpVolume: 0.5
   deathSFX: {fileID: 8300000, guid: eff383e7f04f85546a9f2f9470235a66, type: 3}
-  deathVolume: 0.4
   warningIcon: {fileID: 537370904}
   isRebooting: 0
 --- !u!114 &1211816040
@@ -646045,8 +646036,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoverFootsteps
   footstepSFX: {fileID: 8300000, guid: 410a5ca4ef8296e42bfe91e7b840cfcd, type: 3}
-  footstepVol: 0.3
-  footstepDelay: 0.3
 --- !u!1001 &1221106427
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -652430,10 +652419,10 @@ RectTransform:
   - {fileID: 771810621}
   m_Father: {fileID: 1684130687}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 364.92377, y: 397.52112}
-  m_SizeDelta: {x: 1122.459, y: 236.6974}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -595.07623, y: -142.47888}
+  m_SizeDelta: {x: 1122.459, y: 236.69739}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1447974375
 CanvasRenderer:
@@ -652977,7 +652966,6 @@ MonoBehaviour:
   anticheatPrefab: {fileID: 6483949636753900635, guid: c037d64d8d3cc26f08e13d92fbf56a0c, type: 3}
   spawnPoint: {fileID: 1253695794}
   spawnSFX: {fileID: 8300000, guid: c762b73646e5a3e44927e3f8d0b0cfeb, type: 3}
-  volume: 0.3
 --- !u!212 &1509016411
 SpriteRenderer:
   serializedVersion: 2
@@ -669923,10 +669911,10 @@ RectTransform:
   - {fileID: 330014410}
   m_Father: {fileID: 1684130687}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 364.92377, y: 397.52112}
-  m_SizeDelta: {x: 1122.459, y: 236.6974}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -595.07623, y: -142.47888}
+  m_SizeDelta: {x: 1122.459, y: 236.69739}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1965210903
 CanvasRenderer:
