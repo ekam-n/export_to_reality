@@ -69,15 +69,9 @@ public class DialogueTrigger : MonoBehaviour
         if (triggerOnce && hasTriggered) return;
         if (isActive) return;
 
-        if (s_active != null && !s_active.allLinesDone)
-        {
-            s_pending = this;
-        }
-        else
-        {
-            if (s_active != null) s_active.ForceStop();
-            StartDialogue();
-        }
+        s_active?.ForceStop();
+        s_pending = null;
+        StartDialogue();
     }
 
     private void StartDialogue()
