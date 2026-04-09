@@ -1728,6 +1728,7 @@ GameObject:
   - component: {fileID: 177431451}
   - component: {fileID: 177431450}
   - component: {fileID: 177431449}
+  - component: {fileID: 177431453}
   m_Layer: 5
   m_Name: LongPlatformFrame
   m_TagString: Untagged
@@ -1864,6 +1865,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 177431447}
   m_CullTransparentMesh: 1
+--- !u!114 &177431453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177431447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 137987231}
+          m_TargetAssemblyTypeName: PlacementManager2D, Assembly-CSharp
+          m_MethodName: StartPlacing
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &185801778 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7847590476956675194, guid: db88bb456a5fa7040bf281f15aca393e, type: 3}
@@ -9627,6 +9657,7 @@ GameObject:
   - component: {fileID: 591212059}
   - component: {fileID: 591212058}
   - component: {fileID: 591212057}
+  - component: {fileID: 591212061}
   m_Layer: 5
   m_Name: SquarePlatformFrame
   m_TagString: Untagged
@@ -9763,6 +9794,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 591212055}
   m_CullTransparentMesh: 1
+--- !u!114 &591212061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591212055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 137987231}
+          m_TargetAssemblyTypeName: PlacementManager2D, Assembly-CSharp
+          m_MethodName: StartPlacing
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!4 &611966470 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7839907737241316478, guid: 1589bc0468c2b98fab5a4234b07a6932, type: 3}
@@ -605891,6 +605951,7 @@ GameObject:
   - component: {fileID: 1246794162}
   - component: {fileID: 1246794161}
   - component: {fileID: 1246794160}
+  - component: {fileID: 1246794164}
   m_Layer: 5
   m_Name: ClearAllFrame
   m_TagString: Untagged
@@ -606027,6 +606088,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1246794158}
   m_CullTransparentMesh: 1
+--- !u!114 &1246794164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246794158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 137987231}
+          m_TargetAssemblyTypeName: PlacementManager2D, Assembly-CSharp
+          m_MethodName: ClearAllPlaced
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1253695793
 GameObject:
   m_ObjectHideFlags: 0
