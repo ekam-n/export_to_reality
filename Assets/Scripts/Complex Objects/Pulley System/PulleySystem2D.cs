@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class PulleySystem2D : MonoBehaviour
 {
@@ -28,13 +29,35 @@ public class PulleySystem2D : MonoBehaviour
     [Header("Auto-Reset")]
     [SerializeField] private bool useAutoReset = true;
     [SerializeField] private float resetSpeed = 1.0f;
-    private float originalPlatformAY; // We store where it started
+
+    public static List<PulleySystem2D> AllPulleys = new List<PulleySystem2D>();
+    private float originalPlatformAY; 
 
     private void Reset()
     {
         speed = 2.5f;
         deadzoneMassDifference = 0.05f;
         maxMassDifferenceForFullSpeed = 5f;
+    }
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    static void Init()
+    {
+        AllPulleys.Clear();
+    }
+
+    private void OnEnable()
+    {
+        if (!AllPulleys.Contains(this))
+        {
+            AllPulleys.Add(this);
+        }
+    }
+
+    // 4. Unregister when it is destroyed or disabled (IMPORTANT!)
+    private void OnDisable()
+    {
+        AllPulleys.Remove(this);
     }
 
     private void Start()

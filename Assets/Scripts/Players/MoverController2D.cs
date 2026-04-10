@@ -44,12 +44,16 @@ public class MoverController2D : MonoBehaviour
     private Vector3 originalPosBeforeBSOD;
     public bool isRebooting = false;
     private float lastFacingDirection = 1f; // 1 for right, -1 for left
+
+    private PlacementManager2D placementManager;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
 
         respawnPosition = transform.position;
+        placementManager = Object.FindAnyObjectByType<PlacementManager2D>();
     }
 
     public void SetRespawnFromGate(Transform gateTransform)
@@ -64,12 +68,10 @@ public class MoverController2D : MonoBehaviour
         rb.linearVelocity = Vector2.zero;
         rb.angularVelocity = 0f;
 
-        PulleySystem2D[] allPulleys = Object.FindObjectsByType<PulleySystem2D>(FindObjectsSortMode.None);
-        foreach (PulleySystem2D pulley in allPulleys)
+        foreach (PulleySystem2D pulley in PulleySystem2D.AllPulleys)
         {
             pulley.ResetPulley();
         }
-        PlacementManager2D placementManager = Object.FindAnyObjectByType<PlacementManager2D>();
         if (placementManager != null)
         {
             placementManager.ClearAllPlaced();

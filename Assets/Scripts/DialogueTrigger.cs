@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class DialogueTrigger : MonoBehaviour
 {
@@ -57,6 +58,35 @@ public class DialogueTrigger : MonoBehaviour
     private string terminalCurrentLine = "";
     private string moverCurrentLine = "";
 
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    static void Init()
+    {
+        s_active = null;
+        s_pending = null;
+    }
+
+    // 2. Properly manage the Scene event to avoid "Ghost" objects
+    private void OnEnable()
+    {
+        SceneManager.sceneUnloaded += HandleSceneUnload;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneUnloaded -= HandleSceneUnload;
+    }
+
+    private void HandleSceneUnload(Scene scene)
+    {
+        ForceStop();
+    }
+
+    private void OnDestroy()
+    {
+        if (s_active == this) s_active = null;
+        if (s_pending == this) s_pending = null;
+    }
+
     private void Start()
     {
         if (terminalBox != null) terminalBox.SetActive(false);
@@ -96,6 +126,7 @@ public class DialogueTrigger : MonoBehaviour
 
     private void ForceStop()
     {
+        if (this == null) return; // Safety check for destroyed objects
         StopAllCoroutines();
         isActive = false;
         isTyping = false;
@@ -219,13 +250,14 @@ public class DialogueTrigger : MonoBehaviour
         }
 
         isTyping = false;
+        UpdateTerminalDisplay();
     }
 
     private IEnumerator SpeakSound(AudioClip audioClip, float volume)
     {
-        while (true)
+        while (isTyping && audioClip != null) 
         {
-            if (isTyping)
+            if (AudioManager.instance != null)
             {
                 AudioManager.instance.PlaySFX(audioClip, volume);
             }

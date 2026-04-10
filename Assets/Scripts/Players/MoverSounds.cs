@@ -7,28 +7,39 @@ public class MoverSounds : MonoBehaviour
     [SerializeField] private AudioClip footstepSFX;
     private float footstepVol = 0.3f;
     private float footstepDelay = 0.3f;
-    
+    private bool isAlive = true; // 1. The "Kill Switch" for the coroutine
     private MoverController2D moverController2D;
 
     void Start()
     {
         moverController2D = GetComponent<MoverController2D>();
-        StartCoroutine(PlayFootsteps());
-        // StartCoroutine(PlayDeath());
+        if (moverController2D != null)
+        {
+            StartCoroutine(PlayFootsteps());
+        }
+    }
+
+    private void OnDisable()
+    {
+        isAlive = false;
+        StopAllCoroutines(); 
     }
 
     IEnumerator PlayFootsteps()
     {
-        while (true)
+        while (isAlive)
         {
-            if (
-                moverController2D.animator.GetBool("isRunning") == true
-                && moverController2D.IsGrounded()
-            )
+            if (moverController2D != null && moverController2D.animator != null)
             {
-                AudioManager.instance.PlaySFX(footstepSFX, footstepVol);
+                if (moverController2D.animator.GetBool("isRunning") && moverController2D.IsGrounded())
+                {
+                    // 5. Check the Manager exists before calling it
+                    if (AudioManager.instance != null)
+                    {
+                        AudioManager.instance.PlaySFX(footstepSFX, footstepVol);
+                    }
+                }
             }
-
             yield return new WaitForSeconds(footstepDelay);
         }
     }
